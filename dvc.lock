@@ -1,0 +1,51 @@
+schema: '2.0'
+stages:
+  douwnload_ubfc:
+    cmd:
+    - tar -xvf data/UBFC.tar -C data
+    outs:
+    - path: data/UBFC
+      hash: md5
+      md5: f4edd198bb764732e8a0faa6c65b0779.dir
+      size: 1266575492
+      nfiles: 84
+  run_pos_baseline:
+    cmd:
+    - python src/pos_baseline.py
+    deps:
+    - path: data/UBFC
+      hash: md5
+      md5: f4edd198bb764732e8a0faa6c65b0779.dir
+      size: 1266575492
+      nfiles: 84
+    - path: src/pos_baseline.py
+      hash: md5
+      md5: f0c8eb314d840b8ca8cce549913a46ad
+      size: 2002
+    params:
+      params.yaml:
+        pos:
+          dataset_dir: data/UBFC
+          fps: 30
+          win_size: 48
+          pad_size: 18
+  run_pos_improved:
+    cmd:
+    - python src/pos_improved.py
+    deps:
+    - path: data/UBFC
+      hash: md5
+      md5: f4edd198bb764732e8a0faa6c65b0779.dir
+      size: 1266575492
+      nfiles: 84
+    - path: src/pos_improved.py
+      hash: md5
+      md5: 0d17b966df4ec301e033ad6e162d4531
+      size: 2465
+    params:
+      params.yaml:
+        pos:
+          dataset_dir: data/UBFC
+          fps: 30
+          win_size: 48
+          pad_size: 18

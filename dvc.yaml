@@ -1,0 +1,30 @@
+stages:
+  run_pos_baseline:
+    cmd:
+    - python src/pos_baseline.py
+    deps:
+    - data/UBFC
+    - src/pos_baseline.py
+    params:
+    - pos
+
+  run_pos_improved:
+    cmd:
+    - python src/pos_improved.py
+    deps:
+    - data/UBFC
+    - src/pos_improved.py
+    params:
+    - pos
+
+params:
+- results/pos_baseline/params.yaml
+- results/pos_improved/params.yaml
+metrics:
+- results/pos_baseline/metrics.json
+- results/pos_improved/metrics.json
+plots:
+- results/pos_baseline/plots/metrics:
+    x: step
+- results/pos_improved/plots/metrics:
+    x: step

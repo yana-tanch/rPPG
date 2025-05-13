@@ -1,0 +1,16 @@
+opencv-python 
+imageio 
+av 
+mediapipe 
+rootutils 
+omegaconf 
+dvc[ssh] 
+dvclive 
+scipy 
+bokeh 
+matplotlib
+gdown
+notebook
+ipykernel
+ruff
+isort

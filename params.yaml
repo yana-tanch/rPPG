@@ -1,0 +1,13 @@
+image_size: 72
+
+prepare_ubfc:
+  src_data_dir: /mnt/data/datasets/rPPG/UBFC/DATASET_2
+  dst_data_dir: data/UBFC
+  image_size:   ${image_size}
+
+pos:
+  dataset_dir: data/UBFC
+  fps:         30
+  win_size:    48
+  pad_size:    18
+ 

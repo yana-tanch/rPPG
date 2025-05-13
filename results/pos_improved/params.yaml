@@ -1,0 +1,4 @@
+dataset_dir: data/UBFC
+fps: 30
+win_size: 48
+pad_size: 18
